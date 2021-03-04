@@ -1,5 +1,22 @@
-<h1>{{ text }}</h1>
+<h1 [ngClass]="isGreen ? 'text-green': 'text-red'">
+  {{ text | lowercase }}
+</h1>
 
 <h2>{{ numbers }}</h2>
 
-<p>First works, and now I see two lines.</p>
+<ul *ngIf="numbers.length > 0" >
+  <li *ngFor="let number of numbers" >{{ number }}</li>
+</ul>
+
+<p *ngIf="numbers.length == 0" >First works, and now I see two lines. Well, actually only one line.</p>
+
+<p>{{ cash | currency: 'EUR' }}</p>
+{{ date | date: 'shortDate' }}
+
+<input type="text" name="" value="" [disabled]=isDisabled>
+<button (click)="onClick()" type="button" name="button">Click</button>
+
+<p>
+  <input type="text" [(ngModel)]="title" >
+</p>
+<h2>{{ title }}</h2>
