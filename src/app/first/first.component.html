@@ -1,5 +1,13 @@
-<h1>{{ text }}</h1>
+<h1 [ngClass]="isGreen ? 'text-green' : 'text-red'">{{ text | lowercase }}</h1>
 
-<h2>{{ numbers }}</h2>
+<h2>
+  <ul *ngIf="numbers.length > 0" >
+    <li *ngFor="let number of numbers">{{ number }}</li>
+  </ul>
+</h2>
 
-<p>First works, and now I see two lines.</p>
+<p *ngIf="numbers.length == 0">First works, and now I see two lines.</p>
+
+{{ cash | currency: 'EUR' }}
+
+<!-- {{ date | date: 'shortDate'}} -->
